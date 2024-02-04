@@ -9,8 +9,10 @@
             {{ title.value.length }} / 60
         </mat-hint>
 
-        <mat-error *ngIf="courseTitle.errors?.titleExists">
+        @if (courseTitle.errors?.titleExists) {
+<mat-error>
             This title is already being used.</mat-error>
+}
 
     </mat-form-field>
 
@@ -18,11 +20,13 @@
 
         <mat-select placeholder="Select category" formControlName="category">
 
-            <ng-container *ngFor="let category of (courseCategories$ | async)">
+            @for (category of (courseCategories$ | async); track category) {
+  
 
                 <mat-option [value]="category.code">{{category.description}}</mat-option>
 
-            </ng-container>
+            
+}
 
         </mat-select>
 

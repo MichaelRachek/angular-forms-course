@@ -5,7 +5,8 @@
 
     <ng-container formArrayName="lessons">
 
-        <ng-container *ngFor="let lessonForm of lessons.controls; let i = index">
+        @for (lessonForm of lessons.controls; track lessonForm; let i = $index) {
+  
 
             <div class="lesson-form-row" [formGroup]="lessonForm">
 
@@ -33,7 +34,8 @@
 
             </div>
 
-        </ng-container>
+        
+}
 
     </ng-container>
 

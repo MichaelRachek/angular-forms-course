@@ -1,9 +1,16 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {CoursesService} from '../../services/courses.service';
 import {Observable} from 'rxjs';
 import {filter} from 'rxjs/operators';
 import {courseTitleValidator} from '../../validators/course-title.validator';
+import { AsyncPipe } from '@angular/common';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatOptionModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 interface CourseCategory {
     code:string;
@@ -11,9 +18,11 @@ interface CourseCategory {
 }
 
 @Component({
-  selector: 'create-course-step-1',
-  templateUrl: './create-course-step-1.component.html',
-  styleUrls: ['./create-course-step-1.component.scss']
+    selector: 'create-course-step-1',
+    templateUrl: './create-course-step-1.component.html',
+    styleUrls: ['./create-course-step-1.component.scss'],
+    standalone: true,
+    imports: [FormsModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatOptionModule, MatDatepickerModule, MatCheckboxModule, AsyncPipe]
 })
 export class CreateCourseStep1Component implements OnInit {
 

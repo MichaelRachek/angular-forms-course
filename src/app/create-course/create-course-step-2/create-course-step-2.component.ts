@@ -1,12 +1,19 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {createPromoRangeValidator} from '../../validators/date-range.validator';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FileUploadComponent } from '../../file-upload/file-upload.component';
+import { MatRadioModule } from '@angular/material/radio';
 
 
 @Component({
-  selector: 'create-course-step-2',
-  templateUrl: 'create-course-step-2.component.html',
-  styleUrls: ['create-course-step-2.component.scss']
+    selector: 'create-course-step-2',
+    templateUrl: 'create-course-step-2.component.html',
+    styleUrls: ['create-course-step-2.component.scss'],
+    standalone: true,
+    imports: [FormsModule, ReactiveFormsModule, MatRadioModule, FileUploadComponent, MatFormFieldModule, MatInputModule, MatDatepickerModule]
 })
 export class CreateCourseStep2Component implements OnInit {
 

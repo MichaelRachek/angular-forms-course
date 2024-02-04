@@ -1,12 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, NonNullableFormBuilder, Validators} from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, NonNullableFormBuilder, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {createPasswordStrengthValidator} from '../validators/password-strength.validator';
+import { OnlyOneErrorPipe } from '../pipes/only-one-error.pipe';
+import { JsonPipe } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatCardModule } from '@angular/material/card';
 
 
 @Component({
-  selector: 'login',
-  templateUrl: './login-reactive.component.html',
-  styleUrls: ['./login-reactive.component.css']
+    selector: 'login',
+    templateUrl: './login-reactive.component.html',
+    styleUrls: ['./login-reactive.component.css'],
+    standalone: true,
+    imports: [MatCardModule, FormsModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButtonModule, JsonPipe, OnlyOneErrorPipe]
 })
 export class LoginReactiveComponent implements OnInit {
 

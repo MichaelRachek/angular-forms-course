@@ -1,26 +1,23 @@
 import {Component, Input, OnDestroy, OnInit} from '@angular/core';
-import {
-  AbstractControl,
-  ControlValueAccessor,
-  FormBuilder, FormGroup,
-  NG_VALIDATORS,
-  NG_VALUE_ACCESSOR,
-  Validator,
-  Validators
-} from '@angular/forms';
+import { AbstractControl, ControlValueAccessor, FormBuilder, FormGroup, NG_VALIDATORS, NG_VALUE_ACCESSOR, Validator, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {noop, Subscription} from 'rxjs';
+import { JsonPipe } from '@angular/common';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @Component({
-  selector: 'address-form',
-  templateUrl: './address-form.component.html',
-  styleUrls: ['./address-form.component.scss'],
-  providers: [
-      {
-          provide: NG_VALUE_ACCESSOR,
-          multi:true,
-          useExisting: AddressFormComponent
-      }
-  ]
+    selector: 'address-form',
+    templateUrl: './address-form.component.html',
+    styleUrls: ['./address-form.component.scss'],
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            multi: true,
+            useExisting: AddressFormComponent
+        }
+    ],
+    standalone: true,
+    imports: [FormsModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, JsonPipe]
 })
 export class AddressFormComponent implements ControlValueAccessor, OnDestroy {
 
