@@ -1,12 +1,9 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy } from '@angular/core';
 import {
-  AbstractControl,
   ControlValueAccessor,
   FormBuilder,
   FormGroup,
-  NG_VALIDATORS,
   NG_VALUE_ACCESSOR,
-  Validator,
   Validators,
   FormsModule,
   ReactiveFormsModule
@@ -33,14 +30,14 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 export class AddressFormComponent implements ControlValueAccessor, OnDestroy {
 
   @Input()
-  legend: string;
+  public legend: string;
 
-  onTouched = () => {
+  public onTouched = () => {
   };
 
-  onChangeSub: Subscription;
+  public onChangeSub: Subscription;
 
-  form: FormGroup = this.fb.group({
+  public form: FormGroup = this.fb.group({
     addressLine1: [null, [Validators.required]],
     addressLine2: [null, [Validators.required]],
     zipCode: [null, [Validators.required]],
@@ -76,7 +73,6 @@ export class AddressFormComponent implements ControlValueAccessor, OnDestroy {
     } else {
       this.form.enable();
     }
-
   }
 
 }

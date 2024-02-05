@@ -8,36 +8,32 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 
-
 @Component({
     selector: 'login',
     templateUrl: './login.component.html',
     styleUrls: ['./login.component.css'],
     standalone: true,
-    imports: [MatCardModule, FormsModule, MatFormFieldModule, MatInputModule, PasswordStrengthDirective, MatButtonModule, JsonPipe, OnlyOneErrorPipe]
+    imports: [
+      MatCardModule,
+      FormsModule,
+      MatFormFieldModule,
+      MatInputModule,
+      PasswordStrengthDirective,
+      MatButtonModule,
+      JsonPipe,
+      OnlyOneErrorPipe
+    ]
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
-  val = {
+  public val = {
     email: "hello@gmail.com",
     password: "123456"
   };
 
-  constructor() {
-
-
-  }
-
-  ngOnInit() {
-
-  }
-
     login(loginForm: NgForm, submit) {
-
         console.log(loginForm.value, loginForm.valid, submit);
-
         console.log("val", this.val);
-
     }
 
 }
