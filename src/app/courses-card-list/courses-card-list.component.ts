@@ -5,6 +5,7 @@ import { CourseDialogComponent } from '../course-dialog/course-dialog.component'
 import { RouterLink } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'courses-card-list',
@@ -30,7 +31,7 @@ export class CoursesCardListComponent {
     };
     const dialogRef = this.dialog.open(CourseDialogComponent,
       dialogConfig);
-    dialogRef.afterClosed().subscribe(
+    dialogRef.afterClosed().pipe(take(1)).subscribe(
       val => console.log('Dialog output:', val)
     );
   }
